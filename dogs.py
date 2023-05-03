@@ -32,15 +32,4 @@ def test_dog_image_by_size(breed_name, image_size, status_code):
     assert response.status_code == status_code
 
 
-import requests
 
-def test_random_breed_info():
-    response = requests.get('https://dog.ceo/api/breeds/list/all')
-    breed_list = response.json()["message"]
-    random_breed = random.choice(list(breed_list.keys()))
-    breed_info_response = requests.get(f'https://dog.ceo/api/breed/{random_breed}/info')
-    assert breed_info_response.status_code == 200
-    assert breed_info_response.json()["status"] == "success"
-response = requests.post(url, data=json.dumps(payload), headers=headers).json()
-
-print(response)
